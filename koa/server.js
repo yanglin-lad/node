@@ -1,7 +1,16 @@
 const Koa = require('koa') // 引入 koa 构造函数，来创建koa应用
 // 引入的 koa-router 是一个函数，需要再调用一次
 const router = require('koa-router')()
+const koaStatic = require('koa-static')
 const app = new Koa() // 创建应用
+
+// 使用静态文件目录
+// 指定静态文件目录
+// __dirname 可以直接获取当前项目的绝对路径
+app.use(koaStatic(__dirname + '/public'))
+
+// D:\Desktop\Learn\warehouse\node\node\koa
+console.log('sss', __dirname)
 
 // use 方法，koa 框架的方法，可以引入一个中间件
 // 中间件 在 请求和响应之间执行
@@ -14,6 +23,7 @@ router.get('/', async (ctx) => {
   ctx.body = `
   <h1>标题</h1>
   <p>响应文本可以是 html 标签，普通的引号不支持多行 可以使用 反引号</p>
+  <img src="/images/66.jpg" alt="">
   `
 })
 
