@@ -5,10 +5,19 @@ const app = new Koa() // 创建应用
 
 // use 方法，koa 框架的方法，可以引入一个中间件
 // 中间件 在 请求和响应之间执行
-app.use(async (ctx) => {
-  // ctx 上下文
-  ctx.body = 'hello Koa'
+// app.use(async (ctx) => {
+//   // ctx 上下文
+//   ctx.body = 'hello Koa'
+// })
+router.get('/', async (ctx) => {
+  ctx.body = 'home page'
 })
+
+router.get('/video', async (ctx) => {
+  ctx.body = 'video page'
+})
+
+app.use(router.routes()) // koa中 使用 router
 
 // 设置监听端口
 app.listen(8618, () => {
