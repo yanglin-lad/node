@@ -10,7 +10,11 @@ const app = new Koa() // 创建应用
 //   ctx.body = 'hello Koa'
 // })
 router.get('/', async (ctx) => {
-  ctx.body = 'home page'
+  // ctx.body = 'home page'
+  ctx.body = `
+  <h1>标题</h1>
+  <p>响应文本可以是 html 标签，普通的引号不支持多行 可以使用 反引号</p>
+  `
 })
 
 router.get('/video', async (ctx) => {
