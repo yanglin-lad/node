@@ -9,8 +9,14 @@ let result = path.join(domain, url, id)
 
 console.log(result)
 
-const pathStr = path.join('/a', '/b/c','../', '/d')
+const pathStr = path.join('/a', '/b/c', '../', '/d')
 console.log(pathStr) // \a\b\d  ../ 会抵消掉一层路径
 
 const pathStr2 = path.join(__dirname, 'path.js')
 console.log(pathStr2)
+
+console.log('------')
+
+console.log(__filename) // D:\Desktop\Learn\warehouse\node\node\path\path.js
+console.log(path.basename(__filename)) // path.js
+console.log(path.basename(__filename, '.js')) // path
